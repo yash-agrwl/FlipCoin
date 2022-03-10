@@ -9,8 +9,7 @@ namespace FlipCoin
             Console.WriteLine("Welcome to the Flip Coin Problem\n");
             int TotalFlip = TakeInput();
             int TotalHead = CoinCheck(TotalFlip);
-            int TotalTail = TotalFlip - TotalHead;
-            Console.WriteLine("\nH: " + TotalHead + " T: " + TotalTail);
+            DisplayResult(TotalHead, TotalFlip);
         }
 
         public static int TakeInput()
@@ -32,6 +31,15 @@ namespace FlipCoin
                 TotalFlip--;
             }
             return HeadNum;
+        }
+
+        public static void DisplayResult(int TotalHead,int TotalFlip)
+        {
+            int TotalTail = TotalFlip - TotalHead;
+            Console.WriteLine("\nTotal number of Heads is: " + TotalHead + " and Tails is: " + TotalTail);
+            float HeadPercent = ( (float)TotalHead / TotalFlip ) * 100;
+            float TailPercent = ( (float)TotalTail / TotalFlip ) * 100;
+            Console.WriteLine("\nThus, the reqd percentage of Heads is: " + HeadPercent + "% and Tails is: " + TailPercent + "%");
         }
     }
 }
